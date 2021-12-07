@@ -6,6 +6,12 @@ const POKEMON_CHAMBER_API = process.env.REACT_APP_POKEMON_CHAMBER_API || "http:/
 class PokemonChamber {
   static getPokedex = (): Promise<Pokedex> => {
     return axios
+      .get(`${POKEMON_CHAMBER_API}/api/v1/pokedex`)
+      .then(res => res.data as Pokedex);
+  };
+
+  static getPokemon = (): Promise<Pokedex> => {
+    return axios
       .get(`${POKEMON_CHAMBER_API}/api/v1/pokemon`)
       .then(res => res.data as Pokedex);
   };

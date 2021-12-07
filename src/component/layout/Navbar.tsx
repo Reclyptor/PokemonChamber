@@ -13,7 +13,8 @@ const Navbar = () => {
             variant="h4"
             noWrap
             component="div"
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "bold" } }}
+            color="secondary"
+            sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "bold" }, textShadow: "4px 4px 4px black, 0 0 0.2em black" }}
           >
             Pokemon Chamber
           </Typography>
