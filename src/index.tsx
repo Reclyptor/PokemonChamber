@@ -3,12 +3,12 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import PokemonChamber from "./themes/PokemonChamber";
 import { ThemeProvider } from "@mui/material";
+import NeonBlue from "./themes/NeonBlue";
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={PokemonChamber}>
+    <ThemeProvider theme={NeonBlue}>
       <App />
     </ThemeProvider>
   </React.StrictMode>,

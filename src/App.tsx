@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import Navbar from "./component/layout/Navbar";
 import PokemonChamber from "./api/PokemonChamber";
+import PokemonGrid from "./component/pokemon/PokemonGrid";
 import { Pokedex } from "./types/Pokemon";
-import PokemonCard from "./component/pokemon/PokemonCard";
 
 const App = () => {
-  const [pokemon, setPokemon] = useState<Pokedex>();
+  const [pokedex, setPokedex] = useState<Pokedex>([]);
 
   useEffect(() => {
-    if (!pokemon) {
-      PokemonChamber.getPokemon().then(setPokemon);
+    if (pokedex.length === 0) {
+      PokemonChamber.getPokemon().then(setPokedex);
     }
   });
 
@@ -18,7 +18,7 @@ const App = () => {
       <header>
         <Navbar/>
       </header>
-      { pokemon && pokemon.map(p => <PokemonCard key={p.id} pokemon={p} />) }
+      <PokemonGrid pokedex={pokedex}/>
     </div>
   );
 };
