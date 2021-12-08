@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { ReactComponent as RockIcon } from "../../resources/badges/rock.svg";
 
 const RockBadge = () => {

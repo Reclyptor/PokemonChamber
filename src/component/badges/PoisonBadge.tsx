@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { ReactComponent as PoisonIcon } from "../../resources/badges/poison.svg";
 
 const PoisonBadge = () => {

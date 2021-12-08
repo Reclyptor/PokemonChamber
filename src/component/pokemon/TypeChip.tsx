@@ -1,7 +1,7 @@
 import React from "react";
 import { Type } from "../../types/Pokemon";
-import { Chip } from "@material-ui/core";
 import TypeBadge from "./TypeBadge";
+import Chip from "@mui/material/Chip";
 
 type TypeChipProps = {
   type: Type;
@@ -9,7 +9,7 @@ type TypeChipProps = {
 
 const TypeChip = (props: TypeChipProps) => {
   return (
-    <Chip style={{boxShadow: "0 0 0.3em #8FFCFF"}} label={<TypeBadge type={props.type}/>} variant="outlined"/>
+    <Chip sx={{border: 2, boxShadow: "0 0 0.3em #7EFCFF"}} label={<TypeBadge type={props.type}/>} variant="outlined"/>
   );
 };
 

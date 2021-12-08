@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { ReactComponent as GhostIcon } from "../../resources/badges/ghost.svg";
 
 const GhostBadge = () => {

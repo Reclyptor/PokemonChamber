@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { ReactComponent as FireIcon } from "../../resources/badges/fire.svg";
 
 const FireBadge = () => {

@@ -1,4 +1,4 @@
-import * as React from "react";
+import React from "react";
 import { ReactComponent as GroundIcon } from "../../resources/badges/ground.svg";
 
 const GroundBadge = () => {
