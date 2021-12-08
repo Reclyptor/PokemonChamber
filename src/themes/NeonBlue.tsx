@@ -3,19 +3,19 @@ import { createTheme } from "@mui/material";
 const NeonBlue = createTheme({
   palette: {
     primary: {
-      main: "#181A1B",
-      contrastText: "#8FFCFF",
+      main: "#131516",
+      contrastText: "#7EFCFF",
     },
     secondary: {
-      main: "#8FFCFF",
-      contrastText: "#8FFCFF",
+      main: "#7EFCFF",
+      contrastText: "#7EFCFF",
     },
     background: {
-      default: "#181A1B",
-      paper: "#0A1929",
+      default: "#131516",
+      paper: "#081421",
     },
     text: {
-      primary: "#8FFCFF",
+      primary: "#7EFCFF",
     },
   },
 });

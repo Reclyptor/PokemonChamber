@@ -14,7 +14,7 @@ type PokemonCardProps = {
 
 const PokemonCard = (props: PokemonCardProps) => {
   return (
-    <Card sx={{ maxWidth: 250, border: 2, boxShadow: "0 0 0.3em #8FFCFF" }}>
+    <Card sx={{ maxWidth: 250, border: 2, boxShadow: "0 0 0.3em #7EFCFF" }}>
       <CardMedia>
         <Typography variant="h6" component="div" margin="0 .5em 0 .5em">
           <Box sx={{ display: "flex", justifyContent: "space-between"}}>
