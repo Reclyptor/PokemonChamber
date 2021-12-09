@@ -31,7 +31,7 @@ const PokemonCard = (props: PokemonCardProps) => {
           </Box>
         </Typography>
         <Box sx={{ display: "flex", justifyContent: "center" }}>
-          <img src={props.pokemon.images[1].src} alt={props.pokemon.name}/>
+          <img src={props.pokemon.images.find(img => img.image == "github")?.src || ""} alt={props.pokemon.name}/>
         </Box>
       </CardMedia>
       <CardContent>
