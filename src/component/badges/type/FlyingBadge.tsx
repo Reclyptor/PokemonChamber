@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as FlyingIcon } from "../../resources/badges/flying.svg";
+import { ReactComponent as FlyingIcon } from "../../../resources/badges/type/flying.svg";
 
 const FlyingBadge = () => {
   const color = "#A1BBEC";

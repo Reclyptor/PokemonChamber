@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as ElectricIcon } from "../../resources/badges/electric.svg";
+import { ReactComponent as ElectricIcon } from "../../../resources/badges/type/electric.svg";
 
 const ElectricBadge = () => {
   const color = "#F2D94E";

@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as NormalIcon } from "../../resources/badges/normal.svg";
+import { ReactComponent as NormalIcon } from "../../../resources/badges/type/normal.svg";
 
 const NormalBadge = () => {
   const color = "#A0A29F";

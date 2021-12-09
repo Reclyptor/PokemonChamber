@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as RockIcon } from "../../resources/badges/rock.svg";
+import { ReactComponent as RockIcon } from "../../../resources/badges/type/rock.svg";
 
 const RockBadge = () => {
   const color = "#C9BC8A";

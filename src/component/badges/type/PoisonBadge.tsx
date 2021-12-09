@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as PoisonIcon } from "../../resources/badges/poison.svg";
+import { ReactComponent as PoisonIcon } from "../../../resources/badges/type/poison.svg";
 
 const PoisonBadge = () => {
   const color = "#B763FF";

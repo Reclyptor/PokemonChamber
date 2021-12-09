@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as DragonIcon } from "../../resources/badges/dragon.svg";
+import { ReactComponent as DragonIcon } from "../../../resources/badges/type/dragon.svg";
 
 const DragonBadge = () => {
   const color = "#0C6AC8";

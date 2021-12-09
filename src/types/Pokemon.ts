@@ -41,6 +41,8 @@ export interface Statistics {
     defense:        number;
     specialAttack:  number;
     specialDefense: number;
+    speed:          number;
+    total:          number;
 }
 
 export interface Training {

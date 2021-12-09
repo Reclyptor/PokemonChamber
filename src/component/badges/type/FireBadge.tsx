@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as FireIcon } from "../../resources/badges/fire.svg";
+import { ReactComponent as FireIcon } from "../../../resources/badges/type/fire.svg";
 
 const FireBadge = () => {
   const color = "#FBA64C";

@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as SteelIcon } from "../../resources/badges/steel.svg";
+import { ReactComponent as SteelIcon } from "../../../resources/badges/type/steel.svg";
 
 const SteelBadge = () => {
   const color = "#5795A3";

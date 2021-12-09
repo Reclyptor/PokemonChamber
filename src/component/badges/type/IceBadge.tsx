@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as IceIcon } from "../../resources/badges/ice.svg";
+import { ReactComponent as IceIcon } from "../../../resources/badges/type/ice.svg";
 
 const IceBadge = () => {
   const color = "#76D1C1";

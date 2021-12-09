@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as FightingIcon } from "../../resources/badges/fighting.svg";
+import { ReactComponent as FightingIcon } from "../../../resources/badges/type/fighting.svg";
 
 const FightingBadge = () => {
   const color = "#D3425F";

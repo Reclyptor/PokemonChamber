@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as GrassIcon } from "../../resources/badges/grass.svg";
+import { ReactComponent as GrassIcon } from "../../../resources/badges/type/grass.svg";
 
 const GrassBadge = () => {
   const color = "#60BD58";

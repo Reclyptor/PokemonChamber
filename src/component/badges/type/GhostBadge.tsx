@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as GhostIcon } from "../../resources/badges/ghost.svg";
+import { ReactComponent as GhostIcon } from "../../../resources/badges/type/ghost.svg";
 
 const GhostBadge = () => {
   const color = "#5F6DBC";

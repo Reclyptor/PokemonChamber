@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as PsychicIcon } from "../../resources/badges/psychic.svg";
+import { ReactComponent as PsychicIcon } from "../../../resources/badges/type/psychic.svg";
 
 const PsychicBadge = () => {
   const color = "#FA8582";

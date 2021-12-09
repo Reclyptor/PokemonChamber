@@ -1,5 +1,5 @@
 import React from "react";
-import { ReactComponent as WaterIcon } from "../../resources/badges/water.svg";
+import { ReactComponent as WaterIcon } from "../../../resources/badges/type/water.svg";
 
 const WaterBadge = () => {
   const color = "#539DDF";
