@@ -2,9 +2,9 @@
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
 
 <svg
-   width="135.33437mm"
-   height="135.30792mm"
-   viewBox="0 0 135.33437 135.30792"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
    version="1.1"
    id="svg5"
    xmlns="http://www.w3.org/2000/svg"
@@ -12,11 +12,21 @@
   <defs
      id="defs2" />
   <g
-     id="layer1"
-     transform="translate(-88.741098,-65.029475)">
+     id="layer1">
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:64.2414px;line-height:1.25;font-family:sans-serif;letter-spacing:-2.64583px;word-spacing:79.375px;fill:#000000;fill-opacity:1;stroke:#0a1929;stroke-width:4.81812;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       x="-265.69662"
+       y="93.649246"
+       id="text693"><tspan
+         id="tspan691"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:64.2414px;font-family:sans-serif;-inkscape-font-specification:'sans-serif, Bold';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#7efcff;fill-opacity:1;stroke:#0a1929;stroke-width:4.81812;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+         x="-265.69662"
+         y="93.649246"
+         rotate="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0">POKEMON CHAMBER</tspan></text>
     <g
        id="Pokéball_1_"
-       transform="matrix(0.26458333,0,0,0.26458333,77.655056,54.102183)">
+       transform="matrix(0.1786743,0,0,0.1786743,76.145635,17.229597)">
       <g
          id="Colours">
         <path

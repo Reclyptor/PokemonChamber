@@ -2,22 +2,14 @@ import React from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
+import { ReactComponent as Logo } from "public/logo.svg";
 
 const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static">
         <Toolbar>
-          <Typography
-            variant="h4"
-            noWrap
-            component="div"
-            color="secondary"
-            sx={{ flexGrow: 1, display: { xs: "block", sm: "block", fontWeight: "bold" }, textShadow: "4px 4px 4px #0A1929, 0 0 0.3em #7EFCFF" }}
-          >
-            Pokemon Chamber
-          </Typography>
+          <Logo/>
         </Toolbar>
       </AppBar>
     </Box>
