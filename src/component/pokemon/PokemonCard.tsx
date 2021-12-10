@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
@@ -21,8 +21,13 @@ type PokemonCardProps = {
 };
 
 const PokemonCard = (props: PokemonCardProps) => {
+  const [raised, setRaised] = useState(false);
+
+  const raise = () => setRaised(true);
+  const lower = () => setRaised(false);
+
   return (
-    <Card sx={{ border: 2, boxShadow: "0 0 0.3em #7EFCFF" }}>
+    <Card sx={{ border: 2, boxShadow: "0 0 0.3em #7EFCFF", transform: raised ? "scale(1.05)" : null }} onMouseOver={raise} onMouseOut={lower}>
       <CardMedia>
         <Typography variant="h6" component="div" margin="0 .5em 0 .5em">
           <Box sx={{ display: "flex", justifyContent: "space-between"}}>
