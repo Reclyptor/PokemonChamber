@@ -10,9 +10,9 @@ class PokemonChamber {
       .then(res => res.data as Pokedex);
   };
 
-  static getPokemon = (): Promise<Pokedex> => {
+  static getPokemon = (limit: number, offset: number): Promise<Pokedex> => {
     return axios
-      .get(`${POKEMON_CHAMBER_API}/api/v1/pokemon`)
+      .get(`${POKEMON_CHAMBER_API}/api/v1/pokemon?limit=${limit}&offset=${offset}`)
       .then(res => res.data as Pokedex);
   };
 
