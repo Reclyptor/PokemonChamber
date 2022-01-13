@@ -1,25 +1,25 @@
 import { Pokemon } from "./Pokemon";
 
-export interface Pokedex {
+export type Pokedex = {
   id: number;
   name: string;
   region: Region;
   entries: Entry[];
-}
+};
 
-export interface Region {
+export type Region = {
   id: number;
   name: string;
   subregions: Subregion[];
-}
+};
 
-export interface Subregion {
+export type Subregion = {
   id: number;
   name: string;
-}
+};
 
-export interface Entry {
+export type Entry = {
   id: number;
   subregionID: number;
-  pokemon: Pokemon[];
-}
+  pokemon: Pokemon;
+};

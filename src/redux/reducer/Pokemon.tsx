@@ -2,11 +2,13 @@ import { Action } from "../action";
 import { SET_POKEMON } from "../action/Pokemon";
 import { Pokemon } from "../../types/Pokemon";
 
-const setPokemon = (state: Pokemon[], action: Action<Pokemon[]>): Pokemon[] => {
+export type State = Pokemon[];
+
+const setPokemon = (state: State, action: Action<Pokemon[]>): State => {
   return action.payload;
 };
 
-const PokemonReducer = (state: Pokemon[] = [], action: Action<any>) => {
+const PokemonReducer = (state: State = [], action: Action<any>) => {
   switch (action.type) {
     case SET_POKEMON: return setPokemon(state, action);
     default: return state;

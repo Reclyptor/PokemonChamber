@@ -1,6 +1,6 @@
 export type Type = "Grass" | "Fire" | "Water" | "Bug" | "Normal" | "Dark" | "Poison" | "Electric" | "Ground" | "Ice" | "Fairy" | "Steel" | "Fighting" | "Psychic" | "Rock" | "Ghost" | "Dragon" | "Flying";
 
-export interface Pokemon {
+export type Pokemon = {
     id:         number;
     generation: number;
     isDefault:  boolean;
@@ -15,25 +15,25 @@ export interface Pokemon {
     statistics: Statistics;
     training:   Training;
     images:     Image[];
-}
+};
 
-export interface Types {
+export type Types = {
     primary:   string;
     secondary: string;
-}
+};
 
-export interface Physique {
+export type Physique = {
     height: number;
     weight: number;
-}
+};
 
-export interface Abilities {
+export type Abilities = {
     primary:   string;
     secondary: string;
     hidden:    string;
-}
+};
 
-export interface Statistics {
+export type Statistics = {
     hp:             number;
     attack:         number;
     defense:        number;
@@ -41,14 +41,14 @@ export interface Statistics {
     specialDefense: number;
     speed:          number;
     total:          number;
-}
+};
 
-export interface Training {
+export type Training = {
     catchRate:  number;
     growthRate: string;
-}
+};
 
-export interface Image {
+export type Image = {
     image: string;
     src:   string;
-}
+};

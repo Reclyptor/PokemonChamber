@@ -17,6 +17,7 @@ const NeonBlue = createTheme({
     text: {
       primary: "#7EFCFF",
     },
+    divider: "#7EFCFF",
   },
 });
 
