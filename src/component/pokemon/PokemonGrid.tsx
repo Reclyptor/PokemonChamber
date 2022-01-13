@@ -10,7 +10,7 @@ type PokemonGridProps = {
 
 const PokemonGrid = (props: PokemonGridProps) => {
   return (
-    <Box sx={{ flexGrow: 1, margin: "1em" }}>
+    <Box sx={{ flexGrow: 1, margin: "2em" }}>
       <Grid container spacing={1} columns={{ xs: 2, sm: 3, md: 4, lg: 6, xl: 7 }}>
         {
           props.pokemon.map((pokemon, index) =>
