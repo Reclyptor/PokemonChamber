@@ -1,27 +1,33 @@
 import React, { useEffect, useState } from "react";
 import Busy from "../common/Busy";
-import InfiniteScroll from "react-infinite-scroll-component";
 import Navbar from "../layout/Navbar";
 import PokemonChamber from "../../api/PokemonChamber";
 import PokemonGrid from "../pokemon/PokemonGrid";
-import { Pokedex } from "../../types/Pokemon";
+import { Pokemon } from "../../types/Pokemon";
+import { State } from "../../redux/store";
+import { Dispatch } from "redux";
+import { setPokemon } from "../../redux/action/Pokemon";
+import { connect } from "react-redux";
 
-const PokedexNode = () => {
-  const limit = 50;
-  const [busy, setBusy] = useState<boolean>(false);
-  const [hasMore, setHasMore] = useState<boolean>(true);
-  const [pokedex, setPokedex] = useState<Pokedex>([]);
+type StateProps = {
+  pokemon: Pokemon[];
+};
 
-  const loadMore = () => PokemonChamber.getPokemon(limit, pokedex.length)
-    .then(pokemon => {
-      setPokedex(existing => [...existing, ...pokemon]);
-      setHasMore(pokemon.length > 0);
-    });
+type DispatchProps = {
+  setPokemon(_: Pokemon[]): void;
+};
+
+type PokedexNodeProps = StateProps & DispatchProps & {
+
+};
+
+const ConnectedPokedexNode = (props: PokedexNodeProps) => {
+  const [busy, setBusy] = useState(false);
 
   useEffect(() => {
-    if (pokedex.length === 0) {
+    if (props.pokemon.length === 0) {
       setBusy(true);
-      loadMore().then(() => setBusy(false));
+      PokemonChamber.getPokemon().then(props.setPokemon).then(() => setBusy(false));
     }
   }, []);
 
@@ -31,17 +37,23 @@ const PokedexNode = () => {
         <Navbar />
       </header>
       <Busy busy={busy}>
-        <InfiniteScroll
-          dataLength={pokedex.length}
-          next={loadMore}
-          hasMore={hasMore}
-          loader={null}
-        >
-          <PokemonGrid pokedex={pokedex} />
-        </InfiniteScroll>
+        <PokemonGrid pokemon={props.pokemon} />
       </Busy>
     </div>
   );
 };
 
+const mapStateToProps = (state: State): StateProps => {
+  return {
+    pokemon: state.pokemon || []
+  };
+};
+
+const mapDispatchToProps = (dispatch: Dispatch): DispatchProps => {
+  return {
+    setPokemon: (pokemon: Pokemon[]) => dispatch(setPokemon(pokemon))
+  };
+};
+
+const PokedexNode = connect(mapStateToProps, mapDispatchToProps)(ConnectedPokedexNode);
 export default PokedexNode;

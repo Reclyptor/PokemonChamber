@@ -10,9 +10,9 @@ type BusyProps = {
 const Busy = (props: BusyProps) => {
   return (
     props.busy ?
-      <Box sx={{ display: "flex", justifyContent: "center", alignItems: "center", marginTop: 10 }}>
+      <div style={{ position: "absolute", top: "40%", left: "calc(50% - 6em)" }}>
         <CircularProgress size="12em" color="secondary" />
-      </Box> : <Fragment>{props.children}</Fragment>
+      </div> : <Fragment>{props.children}</Fragment>
   );
 };
 

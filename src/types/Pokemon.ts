@@ -1,7 +1,5 @@
 export type Type = "Grass" | "Fire" | "Water" | "Bug" | "Normal" | "Dark" | "Poison" | "Electric" | "Ground" | "Ice" | "Fairy" | "Steel" | "Fighting" | "Psychic" | "Rock" | "Ghost" | "Dragon" | "Flying";
 
-export type Pokedex = Pokemon[]
-
 export interface Pokemon {
     id:         number;
     generation: number;

@@ -5,11 +5,17 @@ import reportWebVitals from "./reportWebVitals";
 import { ThemeProvider } from "@mui/material";
 import NeonBlue from "./themes/NeonBlue";
 import App from "./App";
+import { Provider } from "react-redux";
+import configureStore from "./redux/store";
+
+const store = configureStore();
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={NeonBlue}>
-      <App />
+      <Provider store={store}>
+        <App />
+      </Provider>
     </ThemeProvider>
   </React.StrictMode>,
   document.getElementById("root")
