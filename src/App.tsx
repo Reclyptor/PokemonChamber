@@ -6,8 +6,8 @@ const App = () => {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Navigate replace to="/pokemon" />} />
-        <Route path="/pokemon" element={<PokedexNode />}/>
+        <Route path="/" element={<Navigate replace to="/pokedex" />} />
+        <Route path="/pokedex" element={<PokedexNode />}/>
       </Routes>
     </BrowserRouter>
   );

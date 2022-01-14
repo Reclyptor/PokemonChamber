@@ -4,10 +4,9 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import MenuIcon from "@mui/icons-material/Menu";
 import { ReactComponent as Logo } from "../../resources/logo/logo.svg";
-import { IconButton } from "@mui/material";
+import {IconButton, ListItemButton} from "@mui/material";
 import Drawer from "./Drawer";
 import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import Typography from "@mui/material/Typography";
 import { Pokedex } from "../../types/Pokedex";
@@ -20,6 +19,12 @@ type NavbarProps = {
 
 const Navbar = (props: NavbarProps) => {
   const [isDrawerOpen, setIsDrawerOpen] = useState(false);
+  const [pokedexID, setPokedexID] = useState<number>();
+
+  const selectPokedex = (id: number) => {
+    setPokedexID(id);
+    props.setPokedex(id);
+  };
 
   return (
     <Box sx={{ flexGrow: 1 }}>
@@ -35,7 +40,7 @@ const Navbar = (props: NavbarProps) => {
         <Typography noWrap fontWeight="bold" variant="h4" component="div" align="center">POKEDEX</Typography>
         <List>
           {props.pokedexes.map((pokedex) => (
-            <ListItem button key={pokedex.id} onClick={() => props.setPokedex(pokedex.id)}>
+            <ListItemButton selected={pokedexID === pokedex.id} key={pokedex.id} onClick={() => selectPokedex(pokedex.id)}>
               <ListItemIcon>
                 <img height="35px" src={pokedexImg} alt="Pokedex" />
               </ListItemIcon>
@@ -43,7 +48,7 @@ const Navbar = (props: NavbarProps) => {
                 <Typography noWrap fontWeight="bold" variant="subtitle2" component="div" align="left">{pokedex.name}</Typography>
                 <Typography gutterBottom noWrap variant="caption" component="div" align="left">{pokedex.region.name}</Typography>
               </Box>
-            </ListItem>
+            </ListItemButton>
           ))}
         </List>
       </Drawer>
