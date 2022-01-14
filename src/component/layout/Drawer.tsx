@@ -7,6 +7,7 @@ type DrawerProps = {
   setIsOpen(_: boolean): void;
   children: ReactNode;
   width?: number;
+  anchor?: "left" | "right"
 };
 
 const Drawer = (props: DrawerProps) => {
@@ -25,7 +26,7 @@ const Drawer = (props: DrawerProps) => {
 
   return (
     <div>
-      <MaterialDrawer anchor="left" open={props.isOpen} onClose={toggleDrawer(false)}>
+      <MaterialDrawer anchor={props.anchor || "left"} open={props.isOpen} onClose={toggleDrawer(false)}>
         <Box sx={{ width: props.width || 250 }} onClick={toggleDrawer(false)} onKeyDown={toggleDrawer(false)}>
           {props.children}
         </Box>
