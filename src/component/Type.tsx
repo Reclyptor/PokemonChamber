@@ -1,4 +1,4 @@
-import React from "react";
+import React, { CSSProperties } from "react";
 import { ReactComponent as BugIcon } from "../resource/icon/type/bug.svg";
 import { ReactComponent as DarkIcon } from "../resource/icon/type/dark.svg";
 import { ReactComponent as DragonIcon } from "../resource/icon/type/dragon.svg";
@@ -24,28 +24,29 @@ export type TypeProps = {
   type: "bug" | "dark" | "dragon" | "electric" | "fairy" | "fighting" | "fire" | "flying" | "ghost" | "grass" | "ground" | "ice" | "normal" | "poison" | "psychic" | "rock" | "steel" | "water";
   size?: string;
   className?: string;
+  style?: CSSProperties;
 }
 
 const Type = (props: TypeProps) => {
   switch (props.type) {
-    case "bug": return <BugIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("bug") }} className={ props.className } />;
-    case "dark": return <DarkIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("dark") }} className={ props.className } />;
-    case "dragon": return <DragonIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("dragon") }} className={ props.className } />;
-    case "electric": return <ElectricIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("electric") }} className={ props.className } />;
-    case "fairy": return <FairyIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fairy") }} className={ props.className } />;
-    case "fighting": return <FightingIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fighting") }} className={ props.className } />;
-    case "fire": return <FireIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fire") }} className={ props.className } />;
-    case "flying": return <FlyingIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("flying") }} className={ props.className } />;
-    case "ghost": return <GhostIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ghost") }} className={ props.className } />;
-    case "grass": return <GrassIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("grass") }} className={ props.className } />;
-    case "ground": return <GroundIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ground") }} className={ props.className } />;
-    case "ice": return <IceIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ice") }} className={ props.className } />;
-    case "normal": return <NormalIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("normal") }} className={ props.className } />;
-    case "poison": return <PoisonIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("poison") }} className={ props.className } />;
-    case "psychic": return <PsychicIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("psychic") }} className={ props.className } />;
-    case "rock": return <RockIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("rock") }} className={ props.className } />;
-    case "steel": return <SteelIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("steel") }} className={ props.className } />;
-    case "water": return <WaterIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("water") }} className={ props.className } />;
+    case "bug": return <BugIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("bug"), ...props.style }} className={ props.className } />;
+    case "dark": return <DarkIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("dark"), ...props.style }} className={ props.className } />;
+    case "dragon": return <DragonIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("dragon"), ...props.style }} className={ props.className } />;
+    case "electric": return <ElectricIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("electric"), ...props.style }} className={ props.className } />;
+    case "fairy": return <FairyIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fairy"), ...props.style }} className={ props.className } />;
+    case "fighting": return <FightingIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fighting"), ...props.style }} className={ props.className } />;
+    case "fire": return <FireIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("fire"), ...props.style }} className={ props.className } />;
+    case "flying": return <FlyingIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("flying"), ...props.style }} className={ props.className } />;
+    case "ghost": return <GhostIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ghost"), ...props.style }} className={ props.className } />;
+    case "grass": return <GrassIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("grass"), ...props.style }} className={ props.className } />;
+    case "ground": return <GroundIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ground"), ...props.style }} className={ props.className } />;
+    case "ice": return <IceIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("ice"), ...props.style }} className={ props.className } />;
+    case "normal": return <NormalIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("normal"), ...props.style }} className={ props.className } />;
+    case "poison": return <PoisonIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("poison"), ...props.style }} className={ props.className } />;
+    case "psychic": return <PsychicIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("psychic"), ...props.style }} className={ props.className } />;
+    case "rock": return <RockIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("rock"), ...props.style }} className={ props.className } />;
+    case "steel": return <SteelIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("steel"), ...props.style }} className={ props.className } />;
+    case "water": return <WaterIcon width={ props.size || "20px" } height={ props.size || "20px" } style={{ fill: color("water"), ...props.style }} className={ props.className } />;
     default: return null;
   }
 };

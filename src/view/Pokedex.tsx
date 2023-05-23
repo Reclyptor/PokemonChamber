@@ -1,19 +1,47 @@
-import React, { ReactNode } from "react";
+import React, { CSSProperties } from "react";
 import Card from "../component/Card";
 import Main from "../layout/Main";
-import clsx from "clsx";
-import { range } from "../util/array";
+import { AutoSizer, Grid, GridCellProps } from "react-virtualized";
 import "../tailwind.css";
 
-type Props = {
-  children?: ReactNode;
+type PokedexProps = {
+  total?: number;
   className?: string;
+  style?: CSSProperties;
 };
 
-const Pokedex = (props: Props) => {
+const Pokedex = (props: PokedexProps) => {
+  const total = props.total || 1010;
+  const cardWidth = 148 + 4;
+  const cardHeight = 266 + 4;
+
   return (
-    <Main className={ clsx("flex", props.className) }>
-      { range(10, 1).map((id) => <Card key={ id } id={ id } className="mx-1" />) }
+    <Main className={ props.className } style={ props.style }>
+      <AutoSizer>
+        { ({ width, height }) => {
+          const rowCount = Math.floor(total / Math.floor(width / cardWidth)) + (Math.floor(total % Math.floor(width / cardWidth)) > 0 ? 1 : 0);
+          const colCount = Math.floor(width / cardWidth);
+          return (
+            // @ts-ignore
+            <Grid
+              width={ width }
+              height={ height }
+              rowHeight={ cardHeight }
+              columnWidth={ cardWidth }
+              rowCount={ rowCount }
+              columnCount={ colCount }
+              cellRenderer={ ({ rowIndex, columnIndex, style }: GridCellProps) => {
+                const pokedexID = rowIndex * colCount + columnIndex + 1;
+                return pokedexID > total ? null : (
+                  <div key={ pokedexID } style={ style }>
+                    <Card pokedexID={ pokedexID } />
+                  </div>
+                )
+              }}
+            />
+          );
+        }}
+      </AutoSizer>
     </Main>
   );
 };

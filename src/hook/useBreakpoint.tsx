@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from "react";
 
 const XS = 0;
 const SM = 640;
@@ -29,10 +29,10 @@ const useBreakpoint = () => {
   const [height, setHeight] = useState<number>(0);
   const breakpoint = getBreakpoint(width);
 
-  const resize = (): void => {
+  const resize = useMemo(() => (): void => {
     setWidth(!div ? window.innerWidth : div.clientWidth);
     setHeight(!div ? window.innerHeight : div.clientHeight);
-  };
+  }, [window.innerWidth, window.innerHeight, div?.clientWidth, div?.clientHeight]);
 
   useEffect(() => {
     resize();

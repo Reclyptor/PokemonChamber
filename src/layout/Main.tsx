@@ -1,18 +1,19 @@
-import React, { ReactNode } from "react";
+import React, { CSSProperties, forwardRef, ReactNode } from "react";
 import clsx from "clsx";
 import "../tailwind.css";
 
-type Props = {
+type MainProps = {
   children?: ReactNode;
   className?: string;
+  style?: CSSProperties;
 }
 
-const Pokedex = (props: Props) => {
+const Main = forwardRef<HTMLDivElement, MainProps>((props, ref) => {
   return (
-    <div className={ clsx("w-screen h-screen overflow-auto", props.className) }>
+    <div ref={ ref } className={ clsx("w-screen h-screen overflow-auto", props.className) } style={ props.style }>
       { props.children }
     </div>
   );
-};
+});
 
-export default Pokedex;
+export default Main;
