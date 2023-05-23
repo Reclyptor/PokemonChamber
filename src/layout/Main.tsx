@@ -9,7 +9,7 @@ type Props = {
 
 const Pokedex = (props: Props) => {
   return (
-    <div className={ clsx("w-screen h-screen", props.className) }>
+    <div className={ clsx("w-screen h-screen overflow-auto", props.className) }>
       { props.children }
     </div>
   );

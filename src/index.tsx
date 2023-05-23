@@ -11,7 +11,7 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={< Pokedex /> } />
+        <Route path="/" element={ <Pokedex /> } />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
