@@ -1,8 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import reportWebVitals from './reportWebVitals';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Overview from "./view/Overview";
 import Pokedex from "./view/Pokedex";
+import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,6 +13,7 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={ <Pokedex /> } />
+        <Route path="/:pokedexID" element={ <Overview /> } />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

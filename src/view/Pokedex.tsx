@@ -1,7 +1,9 @@
 import React, { CSSProperties } from "react";
 import Card from "../component/Card";
 import Main from "../layout/Main";
+import clsx from "clsx";
 import { AutoSizer, Grid, GridCellProps } from "react-virtualized";
+import { useNavigate } from "react-router-dom";
 import "../tailwind.css";
 
 type PokedexProps = {
@@ -11,12 +13,13 @@ type PokedexProps = {
 };
 
 const Pokedex = (props: PokedexProps) => {
+  const navigate = useNavigate();
   const total = props.total || 1010;
   const cardWidth = 148 + 4;
   const cardHeight = 266 + 4;
 
   return (
-    <Main className={ props.className } style={ props.style }>
+    <Main className={ clsx("background-animate bg-gradient-to-r from-background to-primary/[.15]", props.className) } style={ props.style }>
       <AutoSizer>
         { ({ width, height }) => {
           const rowCount = Math.floor(total / Math.floor(width / cardWidth)) + (Math.floor(total % Math.floor(width / cardWidth)) > 0 ? 1 : 0);
@@ -35,7 +38,7 @@ const Pokedex = (props: PokedexProps) => {
                 const pokedexID = rowIndex * colCount + columnIndex + 1;
                 return pokedexID > total ? null : (
                   <div key={ pokedexID } style={ style }>
-                    <Card pokedexID={ pokedexID } />
+                    <Card pokedexID={ pokedexID } onClick={ () => navigate(`/${ pokedexID }`) } />
                   </div>
                 )
               }}
