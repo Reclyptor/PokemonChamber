@@ -1,13 +1,15 @@
 import React, { CSSProperties, useEffect, useState } from "react";
+import Image from "./Image";
+import Skeleton from "react-loading-skeleton";
 import Stat, { StatProps } from "./Stat";
 import Type, { TypeProps } from "./Type";
 import clsx from "clsx";
+import useHAF from "../hook/useHAF";
 import { Pokemon, PokemonClient, PokemonStat } from "pokenode-ts";
 import { capitalize } from "../util/string";
 import { color } from "../color";
+import "react-loading-skeleton/dist/skeleton.css";
 import "../tailwind.css";
-import useHAF from "../hook/useHAF";
-import Image from "./Image";
 
 export type CardProps = {
   pokedexID: number | string;
@@ -43,9 +45,18 @@ const Card = (props: CardProps) => {
     <div className={ clsx("min-w-[148px] w-[148px] max-w-[148px] min-h-[262px] h-fit bg-background-mute hover:bg-background active:bg-background-accent border border-primary shadow-md shadow-primary/60 rounded-lg cursor-pointer", props.className) } style={ props.style }>
       <div className="flex items-center justify-between w-full h-fit px-2">
         <span className="font-bold text-primary text-lg">{ `#${ props.pokedexID }` }</span>
-        <span className="flex items-center">{ pokemon?.types.map(({ type }, idx) => <Type key={ idx } type={ type.name as TypeProps['type'] } size="18px" className="min-w-[18px] mx-[2px]"/>) }</span>
+        <span className="flex items-center">
+          {
+            pokemon?.types.map(({ type }, idx) => (
+              <Type key={ idx } type={ type.name as TypeProps['type'] } size="18px" className="min-w-[18px] mx-[2px]"/>
+            )) || <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-11 h-[18px]">{ children }</div> } width="100%" height={ 18 } baseColor={ color("background-accent") } highlightColor={ color("primary") } />
+          }
+        </span>
       </div>
-      <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon?.name.split('-').map(capitalize).join(' ') }</span>
+      { !pokemon?.name ?
+        <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-full h-8 px-8">{ children }</div> } width="100%" height={ 18 } baseColor={ color("background-accent") } highlightColor={ color("primary") } /> :
+        <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon?.name.split('-').map(capitalize).join(' ') }</span>
+      }
       <div className="flex items-center justify-center w-full h-[96px]">
         <Image ref={ ref } src={ (hover ? pokemon?.sprites.front_shiny : pokemon?.sprites.front_default) || '' } alt={ String(props.pokedexID) } className="object-contain" />
       </div>
@@ -59,7 +70,7 @@ const Card = (props: CardProps) => {
             <div className="flex items-center justify-end w-full h-[10px] border border-primary rounded-sm mx-1 transition-width ease-linear duration-200" style={ { background: `linear-gradient(90deg, ${ color('primary') } ${ 100 * stat.base_stat / 180 }%, transparent 0%)` } } />
             <div className="w-fit font-bold text-primary text-xs">{ maxStat(stat) }</div>
           </div>
-        ))
+        )) || <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-full h-[18px] px-2">{ children }</div> } count={ 6 } width="100%" height={ 10 } baseColor={ color("background-accent") } highlightColor={ color("primary") } />
       }
     </div>
   );
