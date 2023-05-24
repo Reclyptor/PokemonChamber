@@ -30,7 +30,7 @@ const Pokedex = (props: PokedexProps) => {
               columnWidth={ cardWidth }
               rowCount={ rowCount }
               columnCount={ colCount }
-              className="flex justify-center"
+              className="flex justify-center no-scrollbar"
               cellRenderer={ ({ rowIndex, columnIndex, style }: GridCellProps) => {
                 const pokedexID = rowIndex * colCount + columnIndex + 1;
                 return pokedexID > total ? null : (
