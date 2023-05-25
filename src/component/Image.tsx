@@ -1,7 +1,7 @@
 import React, { CSSProperties, ReactNode, forwardRef, useState } from "react";
-import "../tailwind.css";
-import clsx from "clsx";
 import Spinner from "./Spinner";
+import clsx from "clsx";
+import "../tailwind.css";
 
 type ImageProps = {
   src?: string | null;
