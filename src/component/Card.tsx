@@ -54,12 +54,12 @@ const Card = (props: CardProps) => {
           }
         </span>
       </div>
-      { !pokemon?.name ?
+      { !pokemon ?
         <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-full h-8 px-8">{ children }</div> } width="100%" height={ 18 } baseColor={ color("background-accent") } highlightColor={ color("primary") } /> :
-        <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon?.name.split('-').map(capitalize).join(' ') }</span>
+        <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon.name.split('-').map(capitalize).join(' ') }</span>
       }
       <div className="flex items-center justify-center w-full h-[96px]">
-        <Image ref={ ref } src={ (hover ? pokemon?.sprites.front_shiny : pokemon?.sprites.front_default) || '' } alt={ String(props.pokedexID) } className="object-contain" />
+        <Image ref={ ref } src={ hover ? pokemon?.sprites.front_shiny : pokemon?.sprites.front_default } alt={ String(props.pokedexID) } className="object-contain" />
       </div>
       {
         pokemon?.stats.map((stat, idx) => (
