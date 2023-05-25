@@ -43,7 +43,7 @@ const Card = (props: CardProps) => {
   }, [props.pokedexID]);
 
   return (
-    <div onClick={ props.onClick } className={ clsx("min-w-[148px] w-[148px] max-w-[148px] min-h-[262px] h-fit bg-background-mute hover:bg-background active:bg-background-accent border border-primary shadow-md shadow-primary/60 rounded-xl cursor-pointer", props.className) } style={ props.style }>
+    <div onClick={ props.onClick } className={ clsx("min-w-[148px] w-full max-w-[178px] min-h-[266px] h-fit bg-background-mute hover:bg-background active:bg-background-accent border border-primary shadow-md shadow-primary/60 rounded-xl cursor-pointer", props.className) } style={ props.style }>
       <div className="flex items-center justify-between w-full h-fit px-2">
         <span className="font-bold text-primary text-lg">{ `#${ props.pokedexID }` }</span>
         <span className="flex items-center">

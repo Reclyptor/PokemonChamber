@@ -32,7 +32,7 @@ const useBreakpoint = () => {
   const resize = useMemo(() => (): void => {
     setWidth(!div ? window.innerWidth : div.clientWidth);
     setHeight(!div ? window.innerHeight : div.clientHeight);
-  }, [window.innerWidth, window.innerHeight, div?.clientWidth, div?.clientHeight]);
+  }, [div]);
 
   useEffect(() => {
     resize();

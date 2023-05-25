@@ -35,7 +35,7 @@ const Overview = forwardRef<HTMLDivElement, OverviewProps>((props, ref) => {
 
   return (
     <Main ref={ ref } className={ clsx("flex items-center justify-center px-8", props.className) } style={ props.style }>
-      <button type="button" onClick={ () => navigate(-1) } className="absolute top-4 left-4 flex items-center justify-center w-fit h-fit px-2 py-1 rounded-lg bg-primary-mute hover:bg-primary active:bg-primary-accent cursor-pointer">
+      <button type="button" onClick={ () => navigate("/") } className="absolute top-4 left-4 flex items-center justify-center w-fit h-fit px-2 py-1 rounded-lg bg-primary-mute hover:bg-primary active:bg-primary-accent cursor-pointer">
         <LeftArrowIcon color={ color("background") } fill={ color("background") } />
         <span className="font-bold text-[18px] text-background">Pokedex</span>
       </button>

@@ -15,7 +15,7 @@ type PokedexProps = {
 const Pokedex = (props: PokedexProps) => {
   const navigate = useNavigate();
   const total = props.total || 1010;
-  const cardWidth = 148 + 4;
+  const cardWidth = 178 + 4;
   const cardHeight = 266 + 4;
 
   return (
@@ -33,11 +33,11 @@ const Pokedex = (props: PokedexProps) => {
               columnWidth={ cardWidth }
               rowCount={ rowCount }
               columnCount={ colCount }
-              className="flex justify-center no-scrollbar"
+              className="flex justify-center no-scrollbar p-1"
               cellRenderer={ ({ rowIndex, columnIndex, style }: GridCellProps) => {
                 const pokedexID = rowIndex * colCount + columnIndex + 1;
                 return pokedexID > total ? null : (
-                  <div key={ pokedexID } style={ style }>
+                  <div key={ pokedexID } className="flex items-center justify-center w-full h-full" style={ style }>
                     <Card pokedexID={ pokedexID } onClick={ () => navigate(`/${ pokedexID }`) } />
                   </div>
                 )
