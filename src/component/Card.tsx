@@ -1,6 +1,6 @@
 import React, { CSSProperties, MouseEvent, useEffect, useState } from "react";
 import Image from "./Image";
-import Skeleton from "react-loading-skeleton";
+import Skeleton from "./Skeleton";
 import Stat, { StatProps } from "./Stat";
 import Type, { TypeProps } from "./Type";
 import clsx from "clsx";
@@ -47,32 +47,31 @@ const Card = (props: CardProps) => {
       <div className="flex items-center justify-between w-full h-fit px-2">
         <span className="font-bold text-primary text-lg">{ `#${ props.pokedexID }` }</span>
         <span className="flex items-center">
-          {
-            pokemon?.types.map(({ type }, idx) => (
-              <Type key={ idx } type={ type.name as TypeProps['type'] } size="18px" className="min-w-[18px] mx-[2px]"/>
-            )) || <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-11 h-[18px]">{ children }</div> } width="100%" height={ 18 } baseColor={ color("background-accent") } highlightColor={ color("primary") } />
-          }
+          <Skeleton loading={ !pokemon } className="flex items-center justify-center w-11 h-[18px]">
+            { pokemon?.types.map(({ type }, idx) => <Type key={ idx } type={ type.name as TypeProps['type'] } size="18px" className="min-w-[18px] mx-[2px]" />) }
+          </Skeleton>
         </span>
       </div>
-      { !pokemon ?
-        <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-full h-8 px-8">{ children }</div> } width="100%" height={ 18 } baseColor={ color("background-accent") } highlightColor={ color("primary") } /> :
-        <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon.name.split('-').map(capitalize).join(' ') }</span>
-      }
+      <Skeleton loading={ !pokemon } className="flex items-center justify-center w-full h-8 py-[7px] px-8">
+        <span className="flex items-center justify-center w-full h-8 font-bold text-primary text-lg text-center leading-4">{ pokemon?.name.split('-').map(capitalize).join(' ') }</span>
+      </Skeleton>
       <div className="flex items-center justify-center w-full h-[96px]">
         <Image ref={ ref } src={ hover ? pokemon?.sprites.front_shiny : pokemon?.sprites.front_default } alt={ String(props.pokedexID) } className="object-contain" />
       </div>
-      {
-        pokemon?.stats.map((stat, idx) => (
-          <div key={ idx } className="flex items-center justify-between w-full h-fit px-2">
-            <div className="flex items-center justify-between min-w-[43px] h-fit">
-              <Stat stat={ stat.stat.name as StatProps['stat'] } size="18px" className="min-w-[18px] mr-1"/>
-              <div className="w-fit font-bold text-primary text-xs">{ stat.base_stat }</div>
+      <Skeleton loading={ !pokemon } count={ 6 } height={ 10 } className="flex items-center justify-center w-full h-[18px] px-2">
+        {
+          pokemon?.stats.map((stat, idx) => (
+            <div key={ idx } className="flex items-center justify-between w-full h-fit px-2">
+              <div className="flex items-center justify-between min-w-[43px] h-fit">
+                <Stat stat={ stat.stat.name as StatProps['stat'] } size="18px" className="min-w-[18px] mr-1"/>
+                <div className="w-fit font-bold text-primary text-xs">{ stat.base_stat }</div>
+              </div>
+              <div className="flex items-center justify-end w-full h-[10px] border border-primary rounded-sm mx-1 transition-width ease-linear duration-200" style={ { background: `linear-gradient(90deg, ${ color('primary') } ${ 100 * stat.base_stat / 180 }%, transparent 0%)` } } />
+              <div className="w-fit font-bold text-primary text-xs">{ maxStat(stat) }</div>
             </div>
-            <div className="flex items-center justify-end w-full h-[10px] border border-primary rounded-sm mx-1 transition-width ease-linear duration-200" style={ { background: `linear-gradient(90deg, ${ color('primary') } ${ 100 * stat.base_stat / 180 }%, transparent 0%)` } } />
-            <div className="w-fit font-bold text-primary text-xs">{ maxStat(stat) }</div>
-          </div>
-        )) || <Skeleton inline wrapper={ ({ children }) => <div className="flex items-center justify-center w-full h-[18px] px-2">{ children }</div> } count={ 6 } width="100%" height={ 10 } baseColor={ color("background-accent") } highlightColor={ color("primary") } />
-      }
+          ))
+        }
+      </Skeleton>
     </div>
   );
 };
