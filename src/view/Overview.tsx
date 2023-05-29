@@ -3,7 +3,7 @@ import Image from "../component/Image";
 import Main from "../layout/Main";
 import clsx from "clsx";
 import useHAF from "../hook/useHAF";
-import { ArrowBigLeft as LeftArrowIcon } from "lucide-react";
+import { ArrowBigLeft as LeftArrowIcon, Image as ImageIcon } from "lucide-react";
 import { Pokemon, PokemonClient } from "pokenode-ts";
 import { capitalize } from "../util/string";
 import { color } from "../color";
@@ -38,6 +38,9 @@ const Overview = forwardRef<HTMLDivElement, OverviewProps>((props, ref) => {
       <button type="button" onClick={ () => navigate("/") } className="absolute top-4 left-4 flex items-center justify-center w-fit h-fit px-2 py-1 rounded-lg bg-primary-mute hover:bg-primary active:bg-primary-accent cursor-pointer">
         <LeftArrowIcon color={ color("background") } fill={ color("background") } />
         <span className="font-bold text-[18px] text-background">Pokedex</span>
+      </button>
+      <button type="button" onClick={ () => window.open(pokemon?.sprites.other?.["official-artwork"].front_default || '') } className="absolute top-4 right-4 flex items-center justify-center w-fit h-fit px-2 py-1 rounded-lg bg-primary-mute hover:bg-primary active:bg-primary-accent cursor-pointer">
+        <ImageIcon color={ color("background") } fill={ color("transparent") } />
       </button>
       <div className="flex flex-col items-center justify-center w-full">
         <Image ref={ imgRef } diameter={ 128 } src={ hover ? pokemon?.sprites.other?.home.front_shiny : pokemon?.sprites.other?.home.front_default } className="w-full max-w-[384px] rounded-xl border-b border-b-4 p-2 border-primary" />
